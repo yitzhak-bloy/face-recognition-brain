@@ -3,6 +3,7 @@ import Particles from 'react-particles-js';
 import Clarifai from 'clarifai';
 import Navigation from './components/Navigation/Navigation';
 import Signin from './components/Signin/Signin';
+import Register from './components/Register/Register';
 import Logo from './components/Logo/Logo';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
@@ -68,24 +69,32 @@ class App extends Component {
       .catch(err => console.log(err))
   }
 
+  onRouteChange = (route) => {
+    this.setState({route: route});
+  }
+
   render() {
     return (
       <div className="App">
         <Particles className='particles'
           params={particlesOptions}
         /> 
-        <Navigation />
-        { this.state.route === 'signin'
-        ? <Signin />
-        : <div>
-            <Logo />
-            <Rank />
-            <ImageLinkForm 
-              onInputChange={this.onInputChange} 
-              onButtonSubmit={this.onButtonSubmit} 
-            />
-            <FaceRecognition imageUrl={this.state.imageUrl} box={this.state.box} /> 
-          </div>
+        <Navigation onRouteChange={this.onRouteChange} />
+        { this.state.route === 'home'
+          ? <div>
+              <Logo />
+              <Rank />
+              <ImageLinkForm 
+                onInputChange={this.onInputChange} 
+                onButtonSubmit={this.onButtonSubmit} 
+              />
+              <FaceRecognition imageUrl={this.state.imageUrl} box={this.state.box} /> 
+            </div>
+            : (
+              this.state.route === 'signin'
+              ? <Signin onRouteChange={this.onRouteChange}/>
+              : <Register onRouteChange={this.onRouteChange}/>
+            )  
         }
         {/* <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> */}
       </div>
