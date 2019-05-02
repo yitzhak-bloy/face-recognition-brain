@@ -34,8 +34,26 @@ class App extends Component {
       imageUrl: '',
       box: {},
       route: 'signin',
-      isSignedIn: false
+      isSignedIn: false,
+      user: {
+        id: '',
+        name: '',
+        email: '',
+        entries: 0,
+        joined: ''
+      }
     }
+  }
+
+  loadUser = (data) => {
+    this.setState({user: {
+      id: data.id,
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      entries: data.entries,
+      joined: data.joined
+    }})
   }
 
   calculateFaceLocation = (data) => {
@@ -89,7 +107,7 @@ class App extends Component {
         { route === 'home'
           ? <div>
               <Logo />
-              <Rank />
+              <Rank name={this.state.user.name} entries={this.state.user.entries} />
               <ImageLinkForm 
                 onInputChange={this.onInputChange} 
                 onButtonSubmit={this.onButtonSubmit} 
@@ -98,8 +116,8 @@ class App extends Component {
             </div>
             : (
               (route === 'signin' || route === 'signout')
-              ? <Signin onRouteChange={this.onRouteChange}/>
-              : <Register onRouteChange={this.onRouteChange}/>
+              ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+              : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
             )  
         }
         {/* <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> */}
