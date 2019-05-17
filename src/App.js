@@ -22,6 +22,7 @@ const particlesOptions = {
 }
 
 const initialState = {
+  language: 'english',
   input: '',
   imageUrl: '',
   box: {},
@@ -113,6 +114,11 @@ class App extends Component {
     this.setState({route: route});
   }
 
+  onLanguageClicked = (language) => {
+    this.setState({language: language});
+    console.log(this.state.language)
+  } 
+
   render() {
     const { isSignedIn, imageUrl, route, box } = this.state;
     return (
@@ -133,11 +139,10 @@ class App extends Component {
             </div>
             : (
               (route === 'signin' || route === 'signout')
-              ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+              ? <Signin onLanguageClicked={this.onLanguageClicked} language={this.state.language} loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
               : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
             )  
         }
-        {/* <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> */}
       </div>
     );
   }
