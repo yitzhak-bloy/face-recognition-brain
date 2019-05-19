@@ -126,7 +126,7 @@ class App extends Component {
         <Particles className='particles'
           params={particlesOptions}
         /> 
-        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
+        <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} onLanguageClicked={this.onLanguageClicked} language={this.state.language} />
         { route === 'home'
           ? <div>
               <Logo />
@@ -139,8 +139,8 @@ class App extends Component {
             </div>
             : (
               (route === 'signin' || route === 'signout')
-              ? <Signin onLanguageClicked={this.onLanguageClicked} language={this.state.language} loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
-              : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+              ? <Signin language={this.state.language} loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+              : <Register language={this.state.language} loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
             )  
         }
       </div>
