@@ -1,3 +1,15 @@
+The purpose of the website is to identify a face that is within an image.<br>
+
+Form of website structure:
+When entering the website it is necessary to enter a username and password, in case there was no previous registration you need to register and the details are saved for the next time.  <br>
+After registering / logging in, there is the body of the website, where there is an area to enter a picture address and after pressing the detect button the app will detect the face and frame it within a square.<br>
+
+Each time the website system detected a face, the user rating increases, the rating is maintained so that each time the user logs in, his rating remains as it was.
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
