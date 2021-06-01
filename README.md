@@ -4,8 +4,7 @@ This app allows the user to detect faces in the image uploaded by them. It makes
 
 Front End of the app is created using React. <br/>
 NodeJS, ExpressJS is used for server side scripting. <br/>
-PostgreSql is used to store user information.
-
+PostgreSql is used to store user information.<br/>
 External Libraries like Bcrypt and KnexJS are also used.
 
 This repo contains source code for the front end part of the app. The code that contains the server side is [here](https://github.com/yitzhak-bloy/smart-brain-api).
