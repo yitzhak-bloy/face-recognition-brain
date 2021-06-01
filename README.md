@@ -8,11 +8,11 @@ PostgreSql is used to store user information.<br/>
 External Libraries like Bcrypt and KnexJS are also used.<br/>
 The app is deployed on heroku along with the server and database.
 
-Technologies Used: HTML, CSS3, JS(ES6, ES7, ES8), React, NodeJS, ExpressJS, postgreSQL, SQL
+Technologies Used: HTML, CSS3, JS(ES6, ES7, ES8), React, NodeJS, ExpressJS, postgreSQL, SQL<br/>
+Libraries Used: Bcrypt, KnexJS
 
 This repo contains source code for the front end part of the app. The code that contains the server side is [here](https://github.com/yitzhak-bloy/smart-brain-api).
 
 
-Libraries Used: Bcrypt, KnexJS
 
 Link: https://smart-brain-bloy.herokuapp.com/
